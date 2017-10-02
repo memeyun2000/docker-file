@@ -1,0 +1,1 @@
+docker build -f Dockerfile-hbase1.3 -t centos-hbase .

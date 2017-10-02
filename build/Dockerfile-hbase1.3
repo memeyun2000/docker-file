@@ -1,0 +1,30 @@
+FROM centos
+
+################# 安装JDK #####################
+COPY soft/jdk1.8.0_112 /usr/share/java
+
+
+##设置环境变量，和linux的export命令一样
+ENV JAVA_HOME /usr/share/java
+
+ENV PATH ${PATH}:${JAVA_HOME}/bin
+
+ENV CLASSPATH ".:${JAVA_HOME}/lib/dt.jar:${JAVA_HOME}/lib/tools.jar"
+
+
+
+
+################# 安装HBASE ###################
+
+COPY soft/hbase-1.3.1 /usr/share/hbase
+
+#hbase 环境变量docker 删除镜像 空间
+
+ENV HBASE_HOME=/usr/share/hbase
+
+ENV PATH=${PATH}:${HBASE_HOME}/bin
+
+#copy hbase 启动文件只 /usr/bin 目录
+
+COPY soft/sec-start-hbase.sh /usr/bin
+RUN chmod 744 /usr/bin/sec-start-hbase.sh
