@@ -1,6 +1,7 @@
 #!/bin/bash
 
-CMD="docker run -itd --name hbase -p 2181:2181 centos-hbase /usr/bin/sec-start-hbase.sh"
+CMD="docker run -itd --name hbase -p 2181:2181 -v /work/docker_data/hbase1.3/hbase:/apps/hbase -v /work/docker_data/hbase1.3/zookeeper:/apps/zookeeper centos-hbase /usr/bin/sec-start-hbase.sh"
+#CMD="docker run -itd --name hbase -p 2181:2181 centos-hbase /usr/bin/sec-start-hbase.sh"
 
 
 #例子：启动cloudera启动docker的脚本
