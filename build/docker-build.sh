@@ -1,1 +1,0 @@
-docker build -t centos-jdk1.8 .
