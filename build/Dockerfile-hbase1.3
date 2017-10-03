@@ -28,3 +28,7 @@ ENV PATH=${PATH}:${HBASE_HOME}/bin
 
 COPY soft/sec-start-hbase.sh /usr/bin
 RUN chmod 744 /usr/bin/sec-start-hbase.sh
+
+
+EXPOSE 2181
+EXPOSE 60010
